@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>DJ4E Polls</title>
+<title>DJ4E Poll Detail</title>
 <!-- link rel="icon" type="image/x-icon" href="images/favicon.ico" -->
 <style>
 body {
@@ -42,25 +42,15 @@ window.onload = init;
 </script>
 </head>
 <body>
-<h1>DJ4E Polls</h1>
+<h1>DJ4E Poll Detail</h1>
 
 <main>
-<section>
-<h2>Polls</h2>
-{% if latest_question_list %}
+<h1>{{ question.question_text }}</h1>
 <ul>
-  {% for question in latest_question_list %}
-  <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-  {% endfor %}
+{% for choice in question.choice_set.all %}
+  <li>{{ choice.choice_text }}</li>
+{% endfor %}
 </ul>
-{% else %}
-<p>No polls are available.</p>
-{% endif %}
-</section>
-
-<section>
-<h2>About DJ4E Polls</h2>
-</section>
 </main>
 
 <footer>
