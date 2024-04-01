@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>DJ4E Poll Detail</title>
+<title>DJ4E Poll Results</title>
 <!-- link rel="icon" type="image/x-icon" href="images/favicon.ico" -->
 <style>
 body {
@@ -23,6 +23,11 @@ a, a:visited {
     font-weight: bold;
     color: #C92; 
 }
+main {
+  display: grid;
+  grid-template-columns: 48vw 48vw;
+  grid-template-rows: auto;
+}
 </style>
 <script>
 function init() {
@@ -37,26 +42,17 @@ window.onload = init;
 </script>
 </head>
 <body>
-<h1>DJ4E Poll Detail</h1>
+<h1>{{ question.question_text }}</h1>
 
 <main>
-<form action="{% url 'polls:vote' question.id %}" method="post">
-{% csrf_token %}
-<fieldset>
-  <legend><h1>{{ question.question_text }}</h1></legend>
-  {% if error_messsage %}
-  <p><strong>{{ error_message }}</strong></p>
-  {% endif %}
-  {% for choice in question.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}"
-                                      value="{{ choice.id }}">
-    <label for="choice{{ forloop.counter }}">
-    {{ choice.choice_text }}
-    </label><br>
-  {% endfor %}
-</fieldset>
-<input type="submit" value="Vote">
-</form>
+<ul>
+{% for choice in question.choice_set.all %}
+  <li>{{ choice.choice_text }} -- {{ choice.votes }}
+      vote {{ choice.votes|pluralize }} </li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
 </main>
 
 <footer>
