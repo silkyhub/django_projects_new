@@ -7,5 +7,5 @@ app_name = 'viewsbasics'
 urlpatterns = [
     path('', TemplateView.as_view(template_name='viewsbasics/index.html')),
     path('funktionally', views.funktionally),
-    # path('danger', views.danger),
+    path('danger', views.danger),
 ]    
