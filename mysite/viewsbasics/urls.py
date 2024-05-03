@@ -8,4 +8,5 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='viewsbasics/index.html')),
     path('funktionally', views.funktionally),
     path('danger', views.danger),
+    path('safer', views.safer),
 ]    
