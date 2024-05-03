@@ -133,3 +133,48 @@ def safer(request):
     </body>
     """
     return HttpResponse(response)
+
+
+def prettyurldata(request, thing):
+    response = """<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>Pretty URL Data Page</title>
+    <link rel="icon" href="https://ict.gctaa.net/resources/GCTAAfavicon.png">
+    <style>
+    body {
+        margin: 4vw;
+    }
+    main {
+        padding: 4vw;
+        border: 1px dotted #777;
+    }
+    h1, footer {
+        text-align: center;
+    }
+    span {
+        font-size: x-large;
+        font-weight: bold;
+        color: red;
+    }
+    footer {
+        margin-top: 1vw;
+    }
+    a, a:visited {
+        text-decoration: none;
+        font-weight: bold;
+        color: #C92; 
+    }
+    </style>
+    </head>
+    <body>
+    <h1>Pretty URL Data Page</h1>
+    <p>Your thing was: <span>"""+escape(thing)+"""</span></p>
+    <footer>
+    <a href="../viewsbasics/">Return to Viewbasics index page</a>
+    </footer>
+    </body>
+    """
+    return HttpResponse(response)
+
