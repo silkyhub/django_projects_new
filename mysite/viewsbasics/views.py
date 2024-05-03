@@ -1,5 +1,7 @@
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.utils.html import escape
+from random import choice
 
 
 def funktionally(request):
@@ -178,3 +180,12 @@ def prettyurldata(request, thing):
     """
     return HttpResponse(response)
 
+
+def bounce(request):
+    places = [
+        'https://www.python.org/',
+        'https://ict.gctaa.net/',
+        'https://www.dj4e.com/',
+        'https://www.djangoproject.com/',
+    ]
+    return HttpResponseRedirect(choice(places))

@@ -10,4 +10,5 @@ urlpatterns = [
     path('danger', views.danger),
     path('safer', views.safer),
     path('prettyurldata/<thing>', views.prettyurldata),
+    path('bounce', views.bounce),
 ]    
