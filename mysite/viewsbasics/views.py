@@ -49,7 +49,7 @@ def danger(request):
     <html lang="en">
     <head>
     <meta charset="utf-8">
-    <title>Danger Page</title>
+    <title>Danger Page!</title>
     <link rel="icon" href="https://ict.gctaa.net/resources/GCTAAfavicon.png">
     <style>
     body {
@@ -62,8 +62,10 @@ def danger(request):
     h1, footer {
         text-align: center;
     }
-    b {
+    span {
         font-size: x-large;
+        font-weight: bold;
+        color: red;
     }
     footer {
         margin-top: 1vw;
@@ -76,8 +78,10 @@ def danger(request):
     </style>
     </head>
     <body>
-    <h1>Danger Page</h1>
-    <p>Your thing was: <b>"""+request.GET['thing']+"""</b></p>
+    <h1>Danger Page!</h1>
+    <p>Your thing was: <span>"""+request.GET['thing']+"""</span></p>
+    <p>You can learn more about <b>URL encoding</b> by clicking
+    <a href="https://en.wikipedia.org/wiki/Percent-encoding">here</a>.</p>
     <footer>
     <a href="../viewsbasics/">Return to Viewbasics index page</a>
     </footer>
