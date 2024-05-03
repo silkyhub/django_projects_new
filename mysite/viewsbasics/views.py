@@ -174,7 +174,7 @@ def prettyurldata(request, thing):
     <h1>Pretty URL Data Page</h1>
     <p>Your thing was: <span>"""+escape(thing)+"""</span></p>
     <footer>
-    <a href="../viewsbasics/">Return to Viewbasics index page</a>
+    <a href="../">Return to Viewbasics index page</a>
     </footer>
     </body>
     """
