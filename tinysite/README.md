@@ -10,3 +10,8 @@ This creates a minimal Django project "from scratch", without using the
 template in
 [django.conf.project_template](https://github.com/django/django/tree/main/django/conf/project_template). Instead,
 the minimal requirements to get a running application are written from scratch.
+
+
+## Resources
+
+* [The Django template language: for Python programmers](https://docs.djangoproject.com/en/dev/ref/templates/api/)
