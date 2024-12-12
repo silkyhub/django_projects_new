@@ -12,6 +12,15 @@ template in
 the minimal requirements to get a running application are written from scratch.
 
 
+## Usage
+
+Run:
+``` 
+django-admin runserver --pythonpath=. --settings=tinyapp 0:8000
+``` 
+and point your browser at the host system on port ``8000``.
+
+
 ## Resources
 
 * [The Django template language: for Python programmers](https://docs.djangoproject.com/en/dev/ref/templates/api/)
