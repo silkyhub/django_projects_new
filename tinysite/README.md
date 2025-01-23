@@ -16,9 +16,10 @@ the minimal requirements to get a running application are written from scratch.
 
 Run:
 ``` 
-django-admin runserver --pythonpath=. --settings=tinyapp 0:8000
+django-admin runserver --pythonpath=. --settings=tinyapp[nn] 0:8000
 ``` 
-and point your browser at the host system on port ``8000``.
+where [nn] is the two digit suffix of the version of tinyapp[nn].py you want
+to run, and point your browser at the host system on port ``8000``.
 
 
 ## Resources

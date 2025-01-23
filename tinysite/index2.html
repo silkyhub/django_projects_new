@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<title>Tiny App Homepage</title>
 <link rel="icon" href="https://ict.gctaa.net/resources/GCTAAfavicon.png">
 <style>
 body {
@@ -39,16 +40,16 @@ function init() {
 }
 window.onload = init;
 </script>
-<title>{{ title }}</title>
 </head>
-
 <body>
-<h1>About {{ title }}</h1>
+<h1>Tiny App Homepage</h1>
 
 <main>
-<p>This Website was developed by {{ author }}.</p>
-<p>This page was rendered using the Django's Template Engine.</p>
-<p><a href="{% url 'index' %}">Return to the homepage</a>.</p>
+<p>
+Welcome to the Tiny App Homepage!
+</p><p>
+Click <a href="/about/">here</a> to find out more about this site.
+</p>
 </main>
 
 <footer>
@@ -59,4 +60,3 @@ window.onload = init;
 </footer>
 
 </body>
-</html>

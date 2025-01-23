@@ -12,7 +12,7 @@ TEMPLATES = [{'BACKEND': 'django.template.backends.django.DjangoTemplates'},]
 
 
 def index(request):
-    f = open('index.html', 'r')
+    f = open('index2.html', 'r')
     page = f.read()
     f.close()
     return HttpResponse(page)
