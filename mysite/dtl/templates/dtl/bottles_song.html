@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>100 Bottles of {{ drink }}</title>
+</head>
+<body>
+<h1>100 Bottles of {{ drink }} on the Wall</h1>
+{% for i in "x"|rjust:"100" %}
+  {% with bottle_count=forloop.counter|add:"-1"|default:100 %}
+    <p>
+    {{ bottle_count }} bottle{{ bottle_count|pluralize }} of {{ drink }} on the
+    wall, {{ bottle_count }} bottle{{ bottle_count|pluralize }} of {{ drink }}.
+    <br>
+    Take one down, pass it around, {{ bottle_count|add:"-1" }} 
+    bottle{{ bottle_count|add:"-1"|pluralize }} of {{ drink }} on the wall.
+    </p>
+  {% endwith %}
+{% endfor %}
+</body>
+</html>
