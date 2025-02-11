@@ -3,20 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>100 Bottles of {{ drink }}</title>
+<title>{{ num_bottles }} Bottles of {{ drink.upper|title }}</title>
+<style>
+body {
+    margin: 4vw;
+}
+main {
+    padding: 4vw;
+    border: 1px dotted #777;
+}
+h1, footer, main {
+    text-align: center;
+}
+footer {
+    margin-top: 1vw;
+}
+a, a:visited {
+    text-decoration: none;
+    font-weight: bold;
+    color: #C92; 
+}
+</style>
 </head>
 <body>
-<h1>100 Bottles of {{ drink }} on the Wall</h1>
-{% for i in "x"|rjust:"100" %}
-  {% with bottle_count=forloop.counter|add:"-1"|default:100 %}
-    <p>
-    {{ bottle_count }} bottle{{ bottle_count|pluralize }} of {{ drink }} on the
-    wall, {{ bottle_count }} bottle{{ bottle_count|pluralize }} of {{ drink }}.
-    <br>
-    Take one down, pass it around, {{ bottle_count|add:"-1" }} 
-    bottle{{ bottle_count|add:"-1"|pluralize }} of {{ drink }} on the wall.
-    </p>
-  {% endwith %}
+<main>
+<h1>{{ num_bottles }} Bottles of {{ drink|title }} on the Wall</h1>
+
+{% for bottle_count in n %}
+<p>
+{{ bottle_count }} bottle{{ bottle_count|pluralize }} of {{ drink }} on the
+wall, {{ bottle_count }} bottle{{ bottle_count|pluralize }} of {{ drink }}.
+<br>
+Take one down, pass it around, {{ bottle_count|add:"-1" }} 
+bottle{{ bottle_count|add:"-1"|pluralize }} of {{ drink }} on the wall.
+</p>
 {% endfor %}
+<p>
+1 bottle of {{ drink }} on the wall, 1 bottle of {{ drink }}.
+<br>
+Take it down, pass it around, no more bottles of {{ drink }} on the wall :-(
+</p>
+</main>
+
+<footer>
+<a href="/">Return to DJ4E Projects</a>
+</footer>
+
 </body>
 </html>
