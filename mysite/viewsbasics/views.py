@@ -1,7 +1,10 @@
+from django.shortcuts import render
+from django.views import View
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.utils.html import escape
 from random import choice
+import math
 
 
 def funktionally(request):
@@ -169,7 +172,7 @@ def prettyurldata(request, thing):
         color: #C92; 
     }
     </style>
-    </head>
+i    </head>
     <body>
     <h1>Pretty URL Data Page</h1>
     <p>Your thing was: <span>"""+escape(thing)+"""</span></p>
@@ -180,6 +183,10 @@ def prettyurldata(request, thing):
     """
     return HttpResponse(response)
 
+class Icecream(View):
+    def get(self, request, flavor=''):
+        x = {'flavor':flavor}
+        return render(request, 'viewsbasics/icecream.html',x)
 
 def bounce(request):
     places = [
@@ -189,3 +196,15 @@ def bounce(request):
         'https://www.djangoproject.com/',
     ]
     return HttpResponseRedirect(choice(places))
+
+class Bmi_calculator(View):
+    def get(self, request, height, weight):
+        bmi = float(weight) / (float(height) * float(height))
+        x = {'height':height, 'weight':weight, 'bmi':bmi}
+        return render(request, 'viewsbasics/bmiCalculator.html', x)
+
+class Circle_area(View):
+    def get(self, request, radius=0):
+        area = math.pi * float(radius) * float(radius)
+        x = {'radius':radius, 'area':area}
+        return render(request, 'viewsbasics/circleArea.html', x)

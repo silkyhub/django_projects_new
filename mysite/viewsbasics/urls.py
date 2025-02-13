@@ -11,4 +11,8 @@ urlpatterns = [
     path('safer', views.safer),
     path('prettyurldata/<thing>', views.prettyurldata),
     path('bounce', views.bounce),
+    path('icecream', views.Icecream.as_view()),
+    path('icecream/<flavor>', views.Icecream.as_view()),
+    path('bmiCalculator/<height>/<weight>', views.Bmi_calculator.as_view()),
+    path('circleArea/<radius>', views.Circle_area.as_view()),
 ]    
